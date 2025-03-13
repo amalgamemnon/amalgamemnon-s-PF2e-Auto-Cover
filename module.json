@@ -22,18 +22,6 @@
       },
       "system": "pf2e",
       "flags": {}
-    },
-	{
-      "name": "amalgamemnons-pf2e-auto-cover-macros",
-      "label": "amalgamemnon's PF2e Auto Cover Macros",
-      "path": "packs/amalgamemnons-pf2e-auto-cover-macros",
-      "type": "Macro",
-      "ownership": {
-        "PLAYER": "OBSERVER",
-        "ASSISTANT": "OWNER"
-      },
-      "system": "pf2e",
-      "flags": {}
     }
   ]
 }
