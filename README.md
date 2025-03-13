@@ -1,148 +1,83 @@
-amalgamemnon's PF2e AutoCover
+###amalgamemnon's PF2e AutoCover
 
-Overview
+📖 A fully automated cover detection module for Foundry VTT using Levels-AutoCover!
+This module ensures that Pathfinder 2e cover mechanics are correctly applied based on target visibility and obstructions, removing the need for manual adjustments.
+⚡ Features
 
-amalgamemnon's PF2e AutoCover is a Foundry VTT module designed to automate cover calculations in Pathfinder 2e, leveraging the Levels-AutoCover module. This module ensures that cover effects are applied dynamically based on visibility, obstacles, and special conditions such as the "Take Cover" action.
+✅ Automatically applies the correct cover effect when targeting a token.
+✅ Removes the cover effect when untargeted.
+✅ Handles multiple targets, applying effects individually.
+✅ Upgrades Standard Cover to Greater Cover if the target has "Has Taken Cover".
+✅ Detects "No Cover - Obstructed" and applies Lesser Cover.
+✅ Fully automates Levels-AutoCover settings on module load.
+🔧 Installation
 
-Features
+    Download the module or clone this repository:
 
-✅ Automatically applies cover effects based on Levels-AutoCover's detection.✅ Supports multiple targeted tokens, applying effects individually.✅ Removes cover effects when a token is untargeted.✅ Upgrades Standard Cover to Greater Cover when the target has the "Has Taken Cover" effect.✅ Detects "No Cover - Obstructed" cases and applies Lesser Cover when necessary.✅ Automatically configures Levels-AutoCover settings on startup, ensuring correct functionality.✅ Detailed logging for debugging to track cover changes.
+git clone https://github.com/YOUR_GITHUB_USERNAME/amalgamemnons-pf2e-autocover.git
 
-Installation
+Move the module into Foundry's modules/ directory:
 
-To install the module:
+    foundrydata/Data/modules/amalgamemnons-pf2e-autocover/
 
-Download the module from the GitHub Repository or Foundry package manager.
+    Enable the module in Foundry VTT under Manage Modules.
+    Ensure Levels-AutoCover is installed and enabled.
 
-Place it in your Foundry VTT Data/modules/ folder.
+⚙️ Automated Settings Configuration
 
-Enable it in Foundry VTT > Game Settings > Manage Modules.
+This module automatically configures Levels-AutoCover to ensure proper functionality. The following settings are applied at startup:
+Setting Key	Value
+apiMode	true
+coverMessageAPI	true
+onlyOwnedNames	true
+coverRestriction	4
+displayChat	true
+tokensProvideCover	true
+activeEffectDefinition	`"25,Greater Cover|50,Standard Cover|75,LesserCover"`
+copsesProvideCover	false
+ignoreFriendly	false
+tokenhppath	"actor.system.attributes.hp.value"
+tokenCoverText	"Obstructed"
+enableActiveEffect	false
+enableDucking	true
+duckingIcon	"modules/levelsautocover/icons/ducking.png"
 
-Ensure Levels-AutoCover is installed and enabled.
+These settings ensure Levels-AutoCover functions correctly with this module.
+📜 Cover Mechanics
 
-How It Works
+This module automates Pathfinder 2e’s cover rules:
 
-This module works by:
+    Lesser Cover (+1 AC): Applied when visibility is 50-75%.
+    Standard Cover (+2 AC, +1 Reflex, +1 Stealth): Applied when visibility is 25-50%.
+    Greater Cover (+4 AC, +2 Reflex, +2 Stealth): Applied when visibility is 0-25%.
+    Standard Cover is upgraded to Greater Cover if the target has "Has Taken Cover".
+    "No Cover - Obstructed" (from Levels-AutoCover) is treated as Lesser Cover.
 
-Detecting cover using Levels-AutoCover when a token is targeted.
+📌 Usage
+🎯 Cover Effects
 
-Applying the correct cover effect based on the target's visibility:
+    Select a token and target another token.
+    The script automatically calculates cover and applies the effect.
+    Untarget the token to remove the cover effect.
 
-Greater Cover (≤ 25% visibility)
+🛠️ Debugging
 
-Standard Cover (≤ 50% visibility)
+To view module activity, open the Foundry Console (F12) and look for logs such as:
 
-Lesser Cover (≤ 75% visibility)
+[amalgamemnon's PF2e AutoCover] Applying Standard Cover to Goblin Warrior
 
-Upgrading Standard Cover to Greater Cover if the target has "Has Taken Cover."
+This helps confirm the correct cover effect is being applied.
+💡 Future Enhancements
 
-Applying Lesser Cover if Levels-AutoCover detects "No Cover - Obstructed."
+    🏹 UI Toggle for Cover Override (GM Only)
+    📊 Additional debugging tools
+    🎨 Custom cover effect icons
 
-Removing cover effects when a token is untargeted.
+📜 License
 
-Automatically configuring Levels-AutoCover settings using game.settings.set() on module load.
+This module is available under the MIT License. You are free to modify and distribute it. If you expand on this project, contributions are welcome!
+✉️ Support & Feedback
 
-Required Modules
+If you have issues or feature requests, open an issue on GitHub or reach out via Foundry VTT forums.
 
-This module requires:
-
-Levels-AutoCover – Provides cover detection.
-
-Pathfinder 2e System for Foundry VTT
-
-Configuration
-
-This module ensures the following Levels-AutoCover settings are automatically applied:
-
-Setting Key
-
-Value
-
-apiMode
-
-true
-
-coverMessageAPI
-
-true
-
-onlyOwnedNames
-
-true
-
-coverRestriction
-
-4
-
-displayChat
-
-true
-
-tokensProvideCover
-
-true
-
-activeEffectDefinition
-
-`25,Greater Cover
-
-50,Standard Cover
-
-75,Lesser Cover`
-
-copsesProvideCover
-
-false
-
-ignoreFriendly
-
-false
-
-tokenhppath
-
-actor.system.attributes.hp.value
-
-tokenCoverText
-
-Obstructed
-
-enableActiveEffect
-
-false
-
-enableDucking
-
-true
-
-duckingIcon
-
-modules/levelsautocover/icons/ducking.png
-
-Debugging & Logs
-
-To check how the module is functioning:
-
-Open Foundry Console (F12).
-
-Look for logs starting with [amalgamemnon's PF2e AutoCover].
-
-If an issue occurs, logs will provide detailed cover calculations and effect applications.
-
-Planned Features / Future Enhancements
-
-Custom Cover Modifiers: Allow GMs to define custom modifiers beyond the standard Pathfinder 2e values.
-
-UI Indicators: Visual indicators on tokens for cover states.
-
-GM Overrides: Options to manually adjust cover effects in real time.
-
-Contributing
-
-Pull requests and feature requests are welcome! If you encounter issues, please report them on the GitHub Issues page.
-
-License
-
-This module is released under the MIT License. See LICENSE for details.
-
-Developed by amalgamemnon 🚀
-
+🚀 Happy gaming! Enjoy your fully automated Pathfinder 2e cover system! 🎲
