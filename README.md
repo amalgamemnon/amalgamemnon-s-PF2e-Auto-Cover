@@ -1,4 +1,4 @@
-# Amalgamemnon's PF2e Auto Cover
+# amalgamemnon's PF2e Auto Cover
 
 **An automation module for Pathfinder 2e in Foundry VTT that integrates seamlessly with Levels-Auto Cover to automatically apply and remove cover effects.**
 
