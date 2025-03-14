@@ -6,7 +6,7 @@
 - 📏 **Automatically applies cover effects** (Lesser Cover, Standard Cover, Greater Cover) when targeting a token.
 - 🔄 **Removes cover effects** when a token is untargeted.
 - 🎯 **Supports multiple targeted tokens**, applying and removing effects individually.
-- 🛡 **"Has Taken Cover" support** – Standard Cover upgrades to Greater Cover if the target has this effect.
+- 🛡 **"Has Taken Cover" support** – Standard Cover upgrades to Greater Cover if the target has this effect (you will need to drag the effect onto your macro bar and apply it to the token when you use the Take Cover action).
 - ❌ **"No Cover - Obstructed" detection** – Automatically applies Lesser Cover when an obstructing token is present.
 - ⚙️ **Auto-configures Levels-Auto Cover settings** to the required values on startup.
 
