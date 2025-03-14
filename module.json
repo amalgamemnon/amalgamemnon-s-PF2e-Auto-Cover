@@ -9,6 +9,12 @@
     "minimum": "12",
     "verified": "12"
   },
+  "dependencies": [
+	{
+		"name": "levelsautocover",
+		"type": "module"
+	},
+],
   "esmodules": ["scripts/pf2e-autocover.js"],
   "packs": [
     {
